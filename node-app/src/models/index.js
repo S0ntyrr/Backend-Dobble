@@ -1,0 +1,13 @@
+const Sequelize = require('sequelize');
+const sequelize = require('../config/database');
+const Persona = require('./persona')(sequelize, Sequelize.DataTypes);
+const Producto = require('./producto')(sequelize, Sequelize.DataTypes);
+const Ubicacion = require('./ubicacion')(sequelize, Sequelize.DataTypes);
+const Venta = require('./venta')(sequelize, Sequelize.DataTypes);
+Venta.belongsTo(Persona, { foreignKey: 'personaId' });
+Venta.belongsTo(Producto, { foreignKey: 'productoId' });
+Venta.belongsTo(Ubicacion, { foreignKey: 'ubicacionId' });
+Persona.hasMany(Venta, { foreignKey: 'personaId' });
+Producto.hasMany(Venta, { foreignKey: 'productoId' });
+Ubicacion.hasMany(Venta, { foreignKey: 'ubicacionId' });
+module.exports = { sequelize, Persona, Producto, Ubicacion, Venta };

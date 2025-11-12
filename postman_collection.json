@@ -1,0 +1,153 @@
+{
+  "info": {
+    "name": "Backends API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Persona",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\": \"Juan Perez\", \"email\": \"juan@example.com\", \"telefono\": \"3001234567\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/personas",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "personas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Producto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\": \"Coca-Cola 500ml\", \"descripcion\": \"Bebida\", \"precio\": 2500.0}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/productos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "productos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Ubicacion",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\": \"Punto Centro\", \"latitud\": 4.710988, \"longitud\": -74.07209, \"direccion\": \"Cll 10 #5\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/ubicaciones",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "ubicaciones"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Venta",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"personaId\": 1, \"productoId\": 1, \"ubicacionId\": 1, \"cantidad\": 2}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/ventas",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "ventas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Ventas por persona",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/ventas/por-persona/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "ventas",
+            "por-persona",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Cantidad por producto",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/ventas/por-producto",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "ventas",
+            "por-producto"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ]
+}
